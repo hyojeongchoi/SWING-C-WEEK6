@@ -3,30 +3,30 @@ using namespace std;
 
 class PhoneBook {
 private:
-	string name; // ÀüÈ­¹øÈ£
-	string number; //ÀÌ¸§
+	string name; // ì „í™”ë²ˆí˜¸
+	string number; //ì´ë¦„
 
 public:
-	PhoneBook();   //»ı¼ºÀÚ
-	void setPnum(string number); //ÀüÈ­¹øÈ£ ÀúÀå
-	void setName(string name); //ÀÌ¸§ ÀúÀå
-	void addPhone(string name, string number); //ÀÌ¸§°ú ÀüÈ­¹øÈ£ ÀúÀå
-	string getPnum(); //ÀüÈ­¹øÈ£ °¡Á®¿À±â
-	string getName(); //ÀÌ¸§ °¡Á®¿À±â
-	void changePnum (string number);  //¹øÈ£¸¦ ¼öÁ¤ÇÏ±â À§ÇØ¼­ Ãß°¡ÇßÀ½
+	PhoneBook();   //ìƒì„±ì
+	void setPnum(string number); //ì „í™”ë²ˆí˜¸ ì €ì¥
+	void setName(string name); //ì´ë¦„ ì €ì¥
+	void addPhone(string name, string number); //ì´ë¦„ê³¼ ì „í™”ë²ˆí˜¸ ì €ì¥
+	string getPnum(); //ì „í™”ë²ˆí˜¸ ê°€ì ¸ì˜¤ê¸°
+	string getName(); //ì´ë¦„ ê°€ì ¸ì˜¤ê¸°
+	void changePnum (string number);  //ë²ˆí˜¸ë¥¼ ìˆ˜ì •í•˜ê¸° ìœ„í•´ì„œ ì¶”ê°€í–ˆìŒ
 };
 
 class PhoneBookManager {
 private:
-	PhoneBook* phoneB; // °´Ã¼ ¹è¿­ »ı¼ºÀ» À§ÇÑ ¼±¾ğ
-	int size; // °´Ã¼ ¹è¿­ÀÇ Å©±â
+	PhoneBook* phoneB; // ê°ì²´ ë°°ì—´ ìƒì„±ì„ ìœ„í•œ ì„ ì–¸
+	int size; // ê°ì²´ ë°°ì—´ì˜ í¬ê¸°
 
 public:
-	PhoneBookManager(int num);  //»ı¼ºÀÚ- PhoneBookÀ¸·Î °´Ã¼ ¹è¿­ »ı¼º
-	void showAll();  // ÀüÈ­¹øÈ£ºÎ ¸ñ·Ï º¸±â
-	void searchPnum(); //ÀüÈ­¹øÈ£ Ã£±â
-	void addPnum(); // ÀüÈ­¹øÈ£ °´Ã¼ Ãß°¡ »ı¼º (¹è¿­ÀÇ ¿ø¼Ò °³¼ö°¡ +1ÀÌ µÇ¾î¾ß ÇÔ)
-	void editPnum(); //ÀüÈ­¹øÈ£ ¼öÁ¤
+	PhoneBookManager(int num);  //ìƒì„±ì- PhoneBookìœ¼ë¡œ ê°ì²´ ë°°ì—´ ìƒì„±
+	void showAll();  // ì „í™”ë²ˆí˜¸ë¶€ ëª©ë¡ ë³´ê¸°
+	void searchPnum(); //ì „í™”ë²ˆí˜¸ ì°¾ê¸°
+	void addPnum(); // ì „í™”ë²ˆí˜¸ ê°ì²´ ì¶”ê°€ ìƒì„± (ë°°ì—´ì˜ ì›ì†Œ ê°œìˆ˜ê°€ +1ì´ ë˜ì–´ì•¼ í•¨)
+	void editPnum(); //ì „í™”ë²ˆí˜¸ ìˆ˜ì •
 };
 
 PhoneBook::PhoneBook()
@@ -66,10 +66,10 @@ PhoneBookManager::PhoneBookManager(int num)
 
 	for (n = 0; n < num; n++)
 	{
-		cout << n + 1 << "¹øÂ° »ç¶÷ÀÇ ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä >> ";
+		cout << n + 1 << "ë²ˆì§¸ ì‚¬ëŒì˜ ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš” >> ";
 		cin >> name1;
 		phoneB[n].setName(name1);
-		cout << n + 1 << "¹øÂ° »ç¶÷ÀÇ ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä >> ";
+		cout << n + 1 << "ë²ˆì§¸ ì‚¬ëŒì˜ ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” >> ";
 		cin >> num1;
 		phoneB[n].setPnum(num1);
 		cout << endl;
@@ -88,7 +88,7 @@ void PhoneBookManager::searchPnum()
 {
 	int i, k = 100;
 	string search;
-	cout << endl << endl << "´©±¸ÀÇ ¹øÈ£¸¦ °Ë»öÇÏ°Ú½À´Ï±î? >> ";
+	cout << endl << endl << "ëˆ„êµ¬ì˜ ë²ˆí˜¸ë¥¼ ê²€ìƒ‰í•˜ê² ìŠµë‹ˆê¹Œ? >> ";
 	cin >> search;
 	for (i = 0; i < size; i++)
 	{
@@ -96,18 +96,18 @@ void PhoneBookManager::searchPnum()
 			k = i;
 	}
 	if (k < size)
-		cout << phoneB[k].getName() << "´ÔÀÇ ÀüÈ­¹øÈ£´Â : " << phoneB[k].getPnum() << endl;
+		cout << phoneB[k].getName() << "ë‹˜ì˜ ì „í™”ë²ˆí˜¸ëŠ” : " << phoneB[k].getPnum() << endl;
 	if (k == 100)
-		cout << "¿¬¶ôÃ³°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù." << endl;
+		cout << "ì—°ë½ì²˜ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤." << endl;
 }
 void PhoneBookManager::addPnum()
 {
 	string newname, newnumber;
 	int i;
 	
-	cout << endl << endl << "ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä >> ";
+	cout << endl << endl << "ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš” >> ";
 	cin >> newname;
-	cout << "ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä >> ";
+	cout << "ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” >> ";
 	cin >> newnumber;
 
 	PhoneBook* tmp = new PhoneBook[size + 1];
@@ -122,49 +122,49 @@ void PhoneBookManager::addPnum()
 
 	phoneB[size - 1].addPhone(newname, newnumber);
 
-	cout << "ÀüÈ­¹øÈ£°¡ Ãß°¡µÇ¾ú½À´Ï´Ù." << endl;
+	cout << "ì „í™”ë²ˆí˜¸ê°€ ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤." << endl;
 }
 
 void PhoneBookManager::editPnum()
 {
 	int i, k = 0;
 	string editname, editnumber;
-	cout << endl << endl << "´©±¸ÀÇ ¹øÈ£¸¦ ¼öÁ¤ÇÏ°Ú½À´Ï±î? >> ";
+	cout << endl << endl << "ëˆ„êµ¬ì˜ ë²ˆí˜¸ë¥¼ ìˆ˜ì •í•˜ê² ìŠµë‹ˆê¹Œ? >> ";
 	cin >> editname;
 	for (i = 0; i < size; i++)
 	{
 		if (editname == phoneB[i].getName())
 			k = i;
 	}
-	if (k < size) // mÀÌ sizeº¸´Ù ÀÛÀº °æ¿ì->ÇØ´çÇÏ´Â ÀÎµ¦½º °ª ÀÖÀ½->ÀüÈ­¹øÈ£ º¯°æ ÁøÇà
+	if (k < size) 
 	{
-		cout << "º¯°æÇÒ ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä >> ";
+		cout << "ë³€ê²½í•  ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” >> ";
 		cin >> editnumber;
 		phoneB[k].changePnum(editnumber);
-		cout << "ÀüÈ­¹øÈ£°¡ º¯°æµÇ¾ú½À´Ï´Ù." << endl;
+		cout << "ì „í™”ë²ˆí˜¸ê°€ ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤." << endl;
 	}
 	if (k == 100)
-		cout << "¿¬¶ôÃ³°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù." << endl;
+		cout << "ì—°ë½ì²˜ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤." << endl;
 }
 int main()
 {
 	int numberofPnum; 
 	int menu = 0;
 
-	cout << "------------ swing ÀüÈ­¹øÈ£ºÎ ------------" << endl;
-	cout << "ÀúÀåÇÒ ÀüÈ­¹øÈ£ÀÇ ¼ö¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä >> ";
+	cout << "------------ swing ì „í™”ë²ˆí˜¸ë¶€ ------------" << endl;
+	cout << "ì €ì¥í•  ì „í™”ë²ˆí˜¸ì˜ ìˆ˜ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” >> ";
 	cin >> numberofPnum;
 	PhoneBookManager manager(numberofPnum);
 	while (menu != 5)
 	{
-		cout << endl << " --- SWING ÀüÈ­¹øÈ£ºÎ --- " << endl;
-		cout << "1. ÀüÈ­¹øÈ£ºÎ º¸±â" << endl;
-		cout << "2. ÀüÈ­¹øÈ£ °Ë»ö" << endl;
-		cout << "3. ÀüÈ­¹øÈ£ Ãß°¡ÇÏ±â" << endl;
-		cout << "4. ÀüÈ­¹øÈ£ ¼öÁ¤ÇÏ±â" << endl;
-		cout << "5. Á¾·á" << endl;
+		cout << endl << " --- SWING ì „í™”ë²ˆí˜¸ë¶€ --- " << endl;
+		cout << "1. ì „í™”ë²ˆí˜¸ë¶€ ë³´ê¸°" << endl;
+		cout << "2. ì „í™”ë²ˆí˜¸ ê²€ìƒ‰" << endl;
+		cout << "3. ì „í™”ë²ˆí˜¸ ì¶”ê°€í•˜ê¸°" << endl;
+		cout << "4. ì „í™”ë²ˆí˜¸ ìˆ˜ì •í•˜ê¸°" << endl;
+		cout << "5. ì¢…ë£Œ" << endl;
 
-		cout << "¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä >> ";
+		cout << "ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” >> ";
 		cin >> menu;
 
 		switch (menu)
@@ -173,8 +173,8 @@ int main()
 		case 2: manager.searchPnum(); break;
 		case 3: manager.addPnum(); break;
 		case 4: manager.editPnum(); break;
-		case 5: cout << endl << endl << "ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù." << endl; break;
-		default: cout << endl << endl << "Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù." << endl;
+		case 5: cout << endl << endl << "í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤." << endl; break;
+		default: cout << endl << endl << "ì˜ëª» ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤." << endl;
 		}
 	}
 }
